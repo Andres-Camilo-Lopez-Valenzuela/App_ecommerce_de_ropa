@@ -154,3 +154,12 @@ input {
     width: 96%;
     gap: 6%;
 }
+
+.galeria{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr) ;
+    margin-top: 200px;
+    gap: 6%;
+    margin-right: 4.5% ;
+}
