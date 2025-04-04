@@ -44,7 +44,7 @@ body {
 
 /* 📌 Imagen de perfil */
 .profile { 
-    width: 6vw;
+    width: 10vw;
     max-width: 90px;
     height: auto;
     border-radius: 50%;
@@ -58,7 +58,7 @@ body {
     position: absolute;
     top: 80px;
     left: 2%;
-    width: 96%;
+    width: 97%;
 }
 
 /* 📌 Barra de búsqueda */
@@ -100,6 +100,7 @@ body {
         width: 50px;
         height: 50px;
     }
+
 }
 
 /* 📌 Contenido de la barra */
@@ -141,11 +142,15 @@ input {
     margin: 0;
     gap: 0.25rem;
 }
+
+/* Los items de dress, jeans, t-shirt*/
 .Todoslositems{
-    
     display: grid;
-    grid-template-columns: repeat(4,0.5fr);
-    gap: 5px;
-    margin-right: 20%;
-    margin-top: 8.5rem;
+    grid-template-columns:repeat(4,1.5fr);
+    align-items: center;
+    position: absolute;
+    top: 8.3rem;
+    left: 2%;
+    width: 96%;
+    gap: 6%;
 }
