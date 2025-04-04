@@ -1,0 +1,143 @@
+/* 🔹 Reseteo básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #ffffff;
+    --input-bg: white;
+    --text: #27292B;
+    --item-hover: #f6f6f6;
+}
+
+/* 📌 Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 📌 Contenedor del texto e imagen */
+.customer { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 96%;
+    position: absolute;
+    top: 10px;
+    left: 2%;
+    right: 2%;
+    padding: 5px 0;
+}
+
+/* 📌 Texto */
+.customer__text { 
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-left: 15px;
+}
+
+/* 📌 Imagen de perfil */
+.profile { 
+    width: 6vw;
+    max-width: 90px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* 📌 Contenedor de la barra de búsqueda y la imagen del filtro */
+.Filter {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    left: 2%;
+    width: 96%;
+}
+
+/* 📌 Barra de búsqueda */
+.search-box {
+    flex: 1; /* 🔹 Ocupa el espacio disponible */
+    background: var(--input-bg);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    height: fit-content;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+/* 📌 Imagen del filtro */
+.filter-img {
+    width: 40px;
+    height: 40px;
+    margin-left: 45px; /* 🔹 Espacio entre la barra y la imagen */
+}
+
+/* 📱 En modo vertical (retrato) */
+@media (orientation: portrait) {
+    .search-box {
+        width: 78vw;
+        max-width: 300px;
+    }
+}
+
+/* 🖥️ En modo horizontal (paisaje) */
+@media (orientation: landscape) {
+    .Filter {
+        width: 94vw;
+    }
+
+    .search-box {
+        width: 70%;
+    }
+
+    .filter-img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* 📌 Contenido de la barra */
+.row {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    background: transparent;
+    border: 0;
+    outline: 0;
+}
+
+input {
+    flex: 1;
+    max-height: 2.5rem;
+    border: 0;
+    outline: 0;
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.search-box svg {
+    stroke: var(--text);
+}
+
+/* 📌 Resultados de búsqueda */
+.results {
+    max-height: 20rem;
+    overflow-y: auto;
+}
+
+.results ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.25rem;
+}
