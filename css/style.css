@@ -141,3 +141,11 @@ input {
     margin: 0;
     gap: 0.25rem;
 }
+.Todoslositems{
+    
+    display: grid;
+    grid-template-columns: repeat(4,0.5fr);
+    gap: 5px;
+    margin-right: 20%;
+    margin-top: 8.5rem;
+}
