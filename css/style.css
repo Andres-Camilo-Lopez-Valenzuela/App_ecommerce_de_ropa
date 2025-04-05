@@ -151,7 +151,7 @@ input {
     position: absolute;
     top: 8.3rem;
     left: 2%;
-    width: 96%;
+    width: 100%;
     gap: 6%;
 }
 
@@ -162,4 +162,27 @@ input {
     margin-top: 200px;
     gap: 6%;
     margin-right: 4.5% ;
+}
+
+/* 📌 Sección galería de ropa (2x2) */
+.galeria-ropa {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 1rem;
+    margin-top: 12rem; /* Ajusta esto según lo necesites */
+    width: 90%;
+    margin-left: 1.8rem;
+    margin-right: auto;
+}
+
+.item-ropa img {
+    width: 95%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.precio{
+    font-size: 1.1rem;
 }
