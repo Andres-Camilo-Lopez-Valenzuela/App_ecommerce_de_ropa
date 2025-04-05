@@ -1,4 +1,3 @@
-/* 🔹 Reseteo básico */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,6 +13,7 @@
 
 /*  Estilos generales */
 body {
+    margin-bottom: 0;
     font-family: 'Poppins', sans-serif;
     background: var(--bg);
     display: flex;
@@ -35,14 +35,12 @@ body {
     padding: 5px 0;
 }
 
-/*  Texto */
 .customer__text { 
     font-size: 1.2rem;
     color: var(--text);
     margin-left: 15px;
 }
 
-/*  Imagen de perfil */
 .profile { 
     width: 10vw;
     max-width: 90px;
@@ -51,7 +49,7 @@ body {
     margin-right: 15.7px;
 }
 
-/*  Contenedor de la barra de búsqueda y la imagen del filtro */
+/* Barra de búsqueda y filtro */
 .Filter {
     display: flex;
     align-items: center;
@@ -61,9 +59,13 @@ body {
     width: 97%;
 }
 
-/*  Barra de búsqueda */
+#filterToggle {
+    border-radius: 20%;
+    border: 4px solid whitesmoke;
+}
+
 .search-box {
-    flex: 1; /* 🔹 Ocupa el espacio disponible */
+    flex: 1;
     background: var(--input-bg);
     border-radius: 0.5rem;
     padding: 0.75rem;
@@ -71,14 +73,12 @@ body {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-/* 💸💸💸 Imagen del filtro */
 .filter-img {
     width: 40px;
     height: 40px;
-    margin-left: 40px; /* 🔹 Espacio entre la barra y la imagen */
+    margin-left: 40px;
 }
 
-/* 💪👋👀 Contenido de la barra */
 .row {
     display: flex;
     align-items: center;
@@ -103,7 +103,6 @@ input {
     stroke: var(--text);
 }
 
-/* Resultados de búsqueda */
 .results {
     max-height: 20rem;
     overflow-y: auto;
@@ -118,10 +117,10 @@ input {
     gap: 0.25rem;
 }
 
-/* Los items de dress, jeans, t-shirt*/
-.Todoslositems{
+/* 🔸 Todos los items */
+.Todoslositems {
     display: grid;
-    grid-template-columns:repeat(4,1.5fr);
+    grid-template-columns: repeat(4, 1.5fr);
     align-items: center;
     position: absolute;
     top: 8.3rem;
@@ -130,22 +129,74 @@ input {
     gap: 6%;
 }
 
-.galeria{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 1fr) ;
-    margin-top: 200px;
-    gap: 6%;
-    margin-right: 4.5% ;
+/* 🔸 Fondo de botones excepto el de "All Items" */
+.Todoslositems img {
+    transition: transform 0.3s ease;
+    background-color: whitesmoke; 
+    border-radius: 10px;
+    border: 1px solid #ccc; /* borde delgado de 1px gris claro */
+    padding: 0; /* quitamos el padding que hacía ver el borde más grueso */
 }
 
-/*  Sección galería de ropa (2x2) */
+
+/* 🔸 Excepción para el botón de All Items */
+.Todoslositems .all img {
+    background-color: transparent;
+    padding: 0;
+}
+
+/* 🔸 Hover */
+.Todoslositems img:hover {
+    transform: scale(1.4);
+    background-color: white;
+}
+
+/* Botones de categoría con borde delgado */
+.category-button {
+    padding: 6px 12px;
+    border-radius: 99px;
+    background-color: var(--item-hover);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border: 0.5px solid #d1d5db; /* Borde delgado */
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.category-button:hover {
+    background-color: white;
+    border-color: #cbd5e1;
+}
+
+.category-button.selected {
+    background-color: #3b82f6;
+    color: white;
+    border-color: #2563eb;
+}
+
+.category-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 1.5px #3b82f6;
+}
+
+/* Galería de ropa */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    margin-top: 200px;
+    gap: 6%;
+    margin-right: 4.5%;
+}
+
 .galeria-ropa {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto);
     gap: 1rem;
-    margin-top: 12rem; 
+    margin-top: 12rem;
     width: 90%;
     margin-left: 1.8rem;
     margin-right: auto;
@@ -158,15 +209,12 @@ input {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.precio{
+.precio {
     font-size: 1.1rem;
 }
 
-/*  Ajuste según el tamaño de la pantalla (PC)*/
-/* Estilo base: Móviles */
 .galeria-ropa {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 🔸 2 columnas en móviles */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     margin-top: 2rem;
     padding: 0 1rem;
@@ -178,8 +226,8 @@ input {
     object-fit: cover;
     border-radius: 10px;
 }
-/* 🟡 Celulares (ej. >= 768px) */
-/* 🔴 Celulares (ej. < 468px) */
+
+/* 🔴 Celulares */
 @media (max-width: 467px) {
     .search-box {
         margin-top: 2rem;
@@ -216,8 +264,7 @@ input {
     }
 
     .galeria-ropa {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Una sola columna */
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.8rem;
         margin-top: 13rem;
         padding: 0 1rem;
@@ -234,19 +281,20 @@ input {
     }
 }
 
-/* 🟡 Tablet (ej. >= 768px) */
+/* 🟡 Tablet */
 @media (min-width: 768px) {
     .customer__text p {
         font-size: 3vw;
     }
+
     .galeria-ropa {
-        grid-template-columns: repeat(2, 1fr); /* 🔸 3 columnas en tablets */
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
         margin-top: 12rem;
     }
 }
 
-/* 🟢 PC (ej. >= 1024px) */
+/* 🟢 PC */
 @media (min-width: 1024px) {
     .search-box {
         margin-top: 3rem;
@@ -271,14 +319,42 @@ input {
     }
 
     .galeria-ropa {
-        grid-template-columns: repeat(2, 1fr); /* 🔸 4 columnas en PC */
-        grid-template-rows: repeat(2, 1fr); /* 🔸 2 filas en PC */
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         gap: 0rem;
         margin-top: 15.5rem;
         justify-items: center;
     }
 
     .galeria-ropa .item-ropa img {
-        max-width: 550px; /* Limita el tamaño para pantallas grandes */
+        max-width: 450px;
     }
+}
+
+/* 🌙 Modo oscuro */
+body.dark-mode {
+    --bg: #121212;
+    --input-bg: #1f1f1f;
+    --text: #e0e0e0;
+    --item-hover: #2c2c2c;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode {
+    --bg: #1a1a1a;
+    --input-bg: #2c2c2c;
+    --text: #ffffff;
+    --item-hover: #333333;
+}
+
+/* Asegúrate de que los elementos usen estas variables */
+body,
+input,
+.search-box,
+.customer__text,
+.precio,
+.info-ropa,
+.User {
+    color: var(--text);
+    background-color: var(--bg);
 }

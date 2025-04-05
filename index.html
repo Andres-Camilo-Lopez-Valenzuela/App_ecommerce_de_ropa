@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <!-- Contenedor de la barra de búsqueda y la imagen del filtro -->
+    <!-- Contenedor de la barra de búsqueda y la imagen del filtro 👀-->
     <div class="Filter">
         <div class="search-box">
             <div class="row">
@@ -33,12 +33,12 @@
             </div>
             <div class="results"></div>
         </div>
-        <img src="/componenetes adicionales/filter.jpeg" alt="Filter" class="filter-img">
+        <img src="/componenetes adicionales/filter.jpeg" alt="Filter" class="filter-img" id="filterToggle" title="Click para cambiar a modo oscuro o claro">
     </div>
 
     <script src="script.js"></script>
     
-    <!--Aqui inicia la parte de todos los items-->
+    <!--Aqui inicia la parte de todos los items 🫡-->
 
     <div class="Todoslositems">
         <div class="all items">
@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    <!--Aqui estan las opciones de la ropa-->
+    <!--Aqui estan las opciones de la ropa 👕👖-->
     <section class="galeria-ropa">
         <div class="item-ropa">
             <img src="/componenetes adicionales/girl-4857037_1280.jpg" alt="Ropa 1">
@@ -90,6 +90,14 @@
             </div>
         </div>
     </section>
+    <script>
+        const filterToggle = document.getElementById('filterToggle');
+    
+        filterToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+    
     
 </body>
 </html>
