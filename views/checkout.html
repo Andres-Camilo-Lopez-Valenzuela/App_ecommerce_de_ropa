@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .checkout {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .checkout h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .producto {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+
+    .producto img {
+      width: 100px;
+      border-radius: 10px;
+    }
+
+    .producto-info {
+      flex: 1;
+    }
+
+    .total {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    .boton-finalizar {
+      display: block;
+      width: 100%;
+      background: #000;
+      color: #fff;
+      padding: 12px;
+      font-size: 16px;
+      text-align: center;
+      border: none;
+      border-radius: 5px;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .boton-finalizar:hover {
+      background: #333;
+    }
+
+    .volver {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout" id="checkout">
+    <!-- Contenido dinámico -->
+  </div>
+
+  <script>
+    const contenedor = document.getElementById("checkout");
+
+    // Primero verificamos si hay una compra directa
+    const compraDirecta = JSON.parse(localStorage.getItem("compraDirecta"));
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    let productos = [];
+
+    if (compraDirecta) {
+      productos.push(compraDirecta);
+    } else if (carrito.length > 0) {
+      productos = carrito;
+    }
+
+    if (productos.length === 0) {
+      contenedor.innerHTML = `
+        <h2>No hay productos en el carrito.</h2>
+        <a class="volver" href="index.html">← Volver</a>
+      `;
+    } else {
+      let total = 0;
+      let html = "<h2>Resumen de Compra</h2>";
+
+      productos.forEach((p) => {
+        const subtotal = p.precio * p.cantidad;
+        total += subtotal;
+
+        html += `
+          <div class="producto">
+            <img src="${p.imagen}" alt="${p.nombre}">
+            <div class="producto-info">
+              <p><strong>${p.nombre}</strong></p>
+              <p>Color: ${p.color}</p>
+              <p>Cantidad: ${p.cantidad}</p>
+              <p>Precio unitario: $${p.precio}</p>
+              <p>Subtotal: $${subtotal}</p>
+            </div>
+          </div>
+        `;
+      });
+
+      html += `
+        <p class="total">Total: $${total}</p>
+        <button class="boton-finalizar" id="finalizarCompra">Finalizar compra</button>
+        <a class="volver" href="index.html">← Volver</a>
+      `;
+
+      contenedor.innerHTML = html;
+
+      document.getElementById("finalizarCompra").addEventListener("click", () => {
+        alert("¡Gracias por tu compra!");
+        localStorage.removeItem("carrito");
+        localStorage.removeItem("compraDirecta");
+        window.location.href = "index.html";
+      });
+    }
+  </script>
+</body>
+</html>
