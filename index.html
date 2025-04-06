@@ -6,7 +6,6 @@
     <title>Ropa - web site</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
 </head>
 <body>
 
@@ -38,10 +37,7 @@
         <img src="/storage/img/filter.jpeg" alt="Filter" class="filter-img" id="filterToggle" title="Click para cambiar a modo oscuro o claro">
     </div>
 
-    <script src="script.js"></script>
-    
-    <!--Aqui inicia la parte de todos los items 🫡-->
-
+    <!--Aquí inicia la parte de todos los items 🫡-->
     <div class="Todoslositems">
         <div class="all items">
             <img src="/storage/img/All Items.png" alt="botón de todos los items">
@@ -57,9 +53,15 @@
         </div>
     </div>
 
-    <!--Aqui estan las opciones de la ropa 👕👖-->
+    <!--Aquí están las opciones de la ropa 👕👖-->
     <section class="galeria-ropa">
-        <div class="item-ropa">
+        <div class="item-ropa" onclick="verDetalle({
+            nombre: 'Urban jean',
+            precio: 40,
+            categoria: 'Jeans',
+            descripcion: 'Jeans de estilo urbano con detalles desgastados',
+            imagen: '/storage/img/girl-4857037_1280.jpg'
+        })">
             <img src="/storage/img/girl-4857037_1280.jpg" alt="Ropa 1">
             <div class="info-ropa">
                 <p class="nombre">Urban jean</p>
@@ -68,41 +70,57 @@
             </div>
             <br>
         </div>
-        <div class="item-ropa">
-            <img src="/storage/img/young-woman-4498399_1280.jpg" alt="Ropa 2">
 
+        <div class="item-ropa" onclick="verDetalle({
+            nombre: 'Vestido de verano',
+            precio: 98,
+            categoria: 'Vestidos',
+            descripcion: 'Vestido de verano con estampado floral',
+            imagen: '/storage/img/young-woman-4498399_1280.jpg'
+        })">
+            <img src="/storage/img/young-woman-4498399_1280.jpg" alt="Ropa 2">
             <div class="info-ropa">
                 <p class="nombre">Vestido de verano</p>
                 <br>
-                <p class="precio"><b>$98  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⭐ 5.0</b></p>
+                <p class="precio"><b>$98 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⭐ 5.0</b></p>
             </div>
             <br>
-            <br>
-            
         </div>
-        <div class="item-ropa">
+
+        <div class="item-ropa" onclick="verDetalle({
+            nombre: 'Camiseta neon vibes',
+            precio: 60,
+            categoria: 'Camisetas',
+            descripcion: 'Camiseta de algodón con estampado vibrante',
+            imagen: '/storage/img/alone-4480439_1280.jpg'
+        })">
             <img src="/storage/img/alone-4480439_1280.jpg" alt="Ropa 3">
             <div class="info-ropa">
                 <p class="nombre">Camiseta neon vibes</p>
                 <br>
-                <p class="precio"><b>$60  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⭐ 5.0</b></p>
+                <p class="precio"><b>$60 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⭐ 5.0</b></p>
             </div>
             <br>
         </div>
-        <div class="item-ropa">
+
+        <div class="item-ropa" onclick="verDetalle({
+            nombre: 'Calzado urban',
+            precio: 47,
+            categoria: 'Calzado',
+            descripcion: 'Calzado urbano cómodo y moderno',
+            imagen: '/storage/img/shoes-8212405_1920.jpg'
+        })">
             <img src="/storage/img/shoes-8212405_1920.jpg" alt="Ropa 4">
             <div class="info-ropa">
                 <p class="nombre">Calzado urban</p>
                 <br>
-                <p class="precio"><b>$47  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⭐ 5.0</b></p>
+                <p class="precio"><b>$47 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⭐ 5.0</b></p>
             </div>
             <br>
         </div>
-
     </section>
 
     <!--En esta parte inicia el footer ⭐-->
-
     <footer class="footer">
         <div class="icon-bar">
             <a href="#inicio"><i class="bi bi-house-fill"></i></a>
@@ -111,13 +129,18 @@
             <a href="#perfil"><i class="bi bi-person-fill"></i></a>
         </div>
     </footer>
-    
+
+    <!-- Script para cambiar modo oscuro/claro -->
     <script>
         const filterToggle = document.getElementById('filterToggle');
-    
         filterToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
         });
+
+        function verDetalle(producto) {
+            localStorage.setItem("productoSeleccionado", JSON.stringify(producto));
+            window.location.href = "/views/detail.html";
+        }
     </script>
 </body>
 </html>

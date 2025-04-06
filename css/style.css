@@ -369,6 +369,7 @@ input,
     bottom: 0;
     width: 100%;
     z-index: 100;
+    margin-top: 10px;
 }
 
 .icon-bar {
@@ -399,4 +400,7 @@ input,
 
 .item-ropa img:hover {
     transform: scale(1.03);
+}
+main {
+  padding-bottom: 80px; /* o el alto de tu footer */
 }
