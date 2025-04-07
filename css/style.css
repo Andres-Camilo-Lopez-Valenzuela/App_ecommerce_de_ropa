@@ -12,15 +12,6 @@
 }
 
 /*  Estilos generales */
-body {
-    margin-bottom: 0;
-    font-family: 'Poppins', sans-serif;
-    background: var(--bg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-}
 
 /*  Contenedor del texto e imagen */
 .customer { 
@@ -32,11 +23,11 @@ body {
     top: 10px;
     left: 2%;
     right: 2%;
-    padding: 5px 0;
+    padding: 5px;
 }
 
 .customer__text { 
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--text);
     margin-left: 15px;
 }
@@ -70,7 +61,7 @@ body {
     border-radius: 0.5rem;
     padding: 0.75rem;
     height: fit-content;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
 }
 
 .filter-img {
@@ -402,5 +393,5 @@ input,
     transform: scale(1.03);
 }
 main {
-  padding-bottom: 80px; /* o el alto de tu footer */
+  padding-bottom: 80px; /* o el alto del footer */
 }
